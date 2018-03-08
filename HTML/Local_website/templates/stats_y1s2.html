@@ -1,0 +1,212 @@
+<html>
+<script defer src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/temp.css">
+    <css src="css/temp.css">
+  </head>
+
+  <body>
+    <h>Overview of Statistics in Year 1 with Micahel Stewart</h>
+    <img src="img/mikey.jpg" style="float: right; width: 15%; margin-right: 30%; margin-bottom: 0.5em;" class="rotate37">
+    <h4>Data</h4>
+    <ul>
+      <li>
+        Discrete Data- Isolated/discrete points ie Integers.<br />
+        Can be summarised by a frequency table
+
+      </li>
+      <li>
+        Continuous Data- Can take on any value in an interval (infinite) <br />
+        Can be summarised through histogram, boxplot
+        <p>
+          <img src="img/boxplot.jpg" alt="randboxplot" >
+          <img src="img/histogram.jpg" alt="randhistogram" style="float: left; margin-right: 60%">
+        </p>
+      </li>
+    </ul>
+
+    <h4>Median-the middle score </h4>
+    <h5>Formal Definition</h5>
+    \[\hat x = x_\frac{n+1}{2} \text{ for odd n}\] <p> <!--Have a single line after not a paragraph  -->
+    </p>
+    \[\hat x = \frac{1}{2}*{(x_\frac{n}{2} + x_{\frac{n}{2} + 1})} \text{ for even n} \]
+    <h5 style="text-align: center">Examples:</h5>
+    \[\text{data = } [1, 2, 3, 4, 5] \hspace{20pt} \hat x = 3\]
+    \[\text{data= } [3, 5, 6, 7] \hspace{20pt} \hat x = \frac{1}{2}*(5+6) = 5.5\]
+
+    <h4>Quantiles</h4>
+    \[\text{A pth sample quantile of the data is any value which has } 100p\% \text{ of the } x_i \text{'s below it and } 100(1-p) \% \text{ of }x_i\text{'s above it. eg lower quartile, p=0.25}\]
+
+    <h4>IQR- InterQuartileRange</h4>
+    IQR = Q3-Q1
+        = third quartile - first quartile
+      Is a common measure of spread of the data
+    <h4>Mean</h4>
+    $$
+    \bar x = \frac{1}{n} \sum_i^n x_i $$
+    <p>
+      The mean is the sum of values divided by how many values there is.
+      Mean is a lot more sensitive to outliers than the median
+    </p>
+
+    <h4>Variance+ Standard Deviation</h4>
+    <h5>Variance</h5>
+    <p>
+      Variance is a measure of the spread of the data. It measure on average how "far away" the data is from the mean, from the average point.
+      Data with a low variance, means that the data is close to the mean.
+      <img src="img/rand_var.png" alt="Example of Variance">
+      $$
+\text{data =runif(n=100, min=160, max=170)}
+      $$
+      $$
+      s_x\text{=var(data)=} 9.005742
+      $$
+    </p>
+    <p>
+      This above plot shows a low variance, which means that a lot of people have similar heights. For example, this data might be taken from
+      the "point guards" in the NBA. However, we will show an example of a higher variance below, with "all positions" in the NBA.
+      <img src="img/rand_var_all.png" alt="Example of Variance">
+      $$
+      \text{data =runif(n=100, min=140, max=200)}
+      $$
+      $$
+      s_x\text{=var(data)= 300.0302}
+      $$
+    </p>
+    <ul>
+      <li>
+        Population Variance - the variance across every "thing" in the scope of things producing data. ie population = earth population
+        xis constitute a whole population. <br />
+        $$\sigma^2 = \frac{1}{n} \sum_i^n(x_i-\bar x)^2$$
+      </li>
+      <li>
+        Sample Variance - a subset of the population ie Australians
+        ie a sample from the whole population
+        Sample variance is usually an estimate of the population variance.
+        $$s^2 = \frac{1}{n-1} \sum_i^n(x_i-\bar x)^2$$
+      </li>
+      <li>
+        \[z = a + bx   \]
+        \[\sigma^2_z = b^2\sigma_x^2\]
+      </li>
+    </ul>
+    <h5>Standard Deviation</h5>
+    \[\text{Pop SD= } \sqrt{\text{pop var}}= \sqrt{\sigma_x^2}\]
+    \[\text{Samp SD= } \sqrt{\text{samp var}}= \sqrt{s_x^2}\]
+
+    <h4>Bivariate Data</h4>
+    a set of paired data: $$(x_1,y_1), (x_2,y_2) ..., (x_n,y_n) $$
+    We want to pick a model that fits this data. Therefore we need to find a "function" that is the closest match to the data.
+    We want the residuals to appear random, without a clear pattern.
+    <h5>Least Squares</h5>
+    y_i = f(x_i) + \epsilon_i
+    For linear function:
+    yi = a+b*xi + epsilon i
+    epsilon i = yi - (a+b*xi) for all i 1:n
+    A close fit has small epsilon.
+    Want to find a and b to minimise this equation.
+    S(a,b) = sigma(yi- a-b*xi)^2
+    ds/da = -2*sigma(yi-a-b*xi) = 0
+    na +bsigmaxi = sigma yi
+    a = 1/n sigma yi - b/nsigmaxi
+    a = ybar - b xbar
+    ds/db = -2*sigma(xi*(yi-a-bxxi))=0
+    a sigma xi + bsigma xi^2= sigma yixi
+    Sub in a= ybar - bxbar
+    ...
+    b= sigma xi - xbar*(yi-ybar)/sigma(xi-xbar)^2
+    b= Sxy/Sxx
+    Least Squares Regression Line: y = a + bx
+    <h6>R code</h6>
+    summary(lm(y~x))
+    abline(lm(y~x))
+    <h5>S summaries</h5>
+    $$
+    S_{xx} = \sum_i^n (x_i - \bar x)^2  = \sum_i^n x_i^2 - \frac{(\sum_i^n x_i)^2}{n} = \sum_i^n x_i^2 - n\bar x^2
+    $$
+    Middle version is best for "by hand calculations" as minises errors.
+    $$
+    S_{yy} = \sum_i^n (y_i - \bar y)^2
+    $$
+    = sumyi^2- (sumyi)^2/n = sumyi^2 - n*ybar^2
+    Sxy=sigma((xi-xbar)*(yi-ybar))
+    = sum(xi*yi) - sumxisumyi/n
+    Right side preferred by hand
+    <h5>Correlation</h5>
+    <p>
+      The slope of the least squares line relates to the scale of the x_i's and the y_i's. Sometimes x's and y's have different scale, like Fahrenheit and celsius
+      . The correlation coefficient "removes" this scale effect. It is expressed as r
+    </p>
+    <p>
+      <ul>
+
+      </ul>
+      <li>
+        \[\text{If } r^2 \text{ is close to 1, the linear relationship provides a good fit.}\]
+      </li>
+      <li>
+        \[\text{If } r^2 \text{ is close to 0, then there is no relationship between the } x_i \text{'s and the } y_i \text{'s}\]
+      </li>
+    </p>
+    \[ r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} \]
+    \[ r^2 =  \frac{S_{xy}^2}{S_{xx}S_{yy}} \le 1 \]
+    <h5> Total Sum of Squares</h5>
+    \[S_{yy}\]
+    <h5> Residual Sum of Squares</h5>
+    The sum of residuals around the least-squares line
+    \[S_{yy} - \frac{S_{xy}^2}{S_{xx}} \]
+    <h5>Regression Sum of Squares</h5>
+    The difference between these is called the regression sum of squares:
+    \[S_{yy} - (S_{yy} - \frac{S_{xy}^2}{S_{xx}}) = \frac{S_{xy}^2}{S_{xx} }\]
+    <h5>Total Sum of Squares</h5>
+    Total Sum of Squares = Regression SoS + Residual SoS<br />
+    The total sum of squares for an individual point is its difference from the mean  -> y - mean(y)<br />
+    It measures the variation in the y co-ordinate/values.
+    <h5> Special Cases</h5>
+    <ul>
+      <li>
+        If residual SoS = 0, the points are all on a straight line, and <bold>all</bold> the variation is explained by the linear relationship
+      </li>
+      <li>
+        If regression SoS =0, least-squares line has slope 0 and the linear relationship explains none of the variation.
+      </li>
+      <li>
+        The <bold>proportion of variation</bold> explained by the linear relationship is \[\frac{\text{Regression SoS}}{\text{Total SoS}} = \frac{\frac{S_{xy}^2}{S_{xx}}}{S_{yy}}= r^2\]
+      </li>
+    </ul>
+    <h4>Regression Examples</h4>
+    <p class="italic"><b>R code:</b><br />
+      <i>attach("fuelFrame")<br />x=1:50 <br />y=fuelFrame[,5]#is fuel consumption<br />plot(x,y) <br />abline(lm(y~x))</i>
+      <br />
+      <img src="img/plotx_y.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+      <img src="img/reg_sos.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+      <img src="img/res_sos.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+      <img src="img/tot_sos.png" style=" margin-right: 25%;">
+      <p>
+        <b>Total = Regression + Residual</b>
+      </p>
+    </p>
+    <h2>Probability</h2>
+    <h3>Axioms of Probability</h3>
+    <ul>
+      <li>
+        <b>A1-</b>\[ P(A) \ge 0\]
+      </li>
+      <li>
+        <b>A2-</b> \[P(\Omega) = 1\]
+      </li>
+      <li>
+        <b>A3-</b> \[ \text{If} A_1, A_2 ... \text{in "suitable collection of events" in } \Omega \text{ then} \]
+        \[ P( A_1 \cup A_2 \cup ...) = P(A_1) + P(A_2) + ...\]
+      </li>
+    </ul>
+    <h3>Consequences of Axioms</h3>
+    <ul>
+      <li>
+        <b>C1-</b>
+      </li>
+    </ul>
+
+
+  </body>
+</html>

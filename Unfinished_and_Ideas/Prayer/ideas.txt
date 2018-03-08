@@ -1,0 +1,11 @@
+'''
+1) Print category list
+2) Prompt user to choose category
+3) User puts in prayer input
+
+'''
+
+'''
+Have a file system of different categories (People, Me, )
+
+'''

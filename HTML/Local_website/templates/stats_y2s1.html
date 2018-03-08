@@ -1,0 +1,47 @@
+<html>
+<script defer src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/temp.css">
+    <css src="css/temp.css">
+  </head>
+  <body>
+    <h1>Stat2911 with Uri</h1>
+    <h2>Probability</h2><h3>Definitions</h3><h4>Prob</h4>
+    <p>
+      \[\text{Sample space: all possible outcomes = } \Omega\]
+      \[\text{Sample point: a point in } \Omega (\omega \in \Omega)\]
+      \[\text{Events are a subset of } \Omega \text{ that we can assign a probability to }\]
+      \[P(\Omega) = 1\]
+      \[P(A) \ge 0 \text{ for every event in A}\]
+      \[\text{If } A_1, A2, ... A_{\infty} \text{ are mutually disjoint events (} A_i \cap A_j = \emptyset \text{)}\]
+      \[\text{ then } P(\cup_{n=1}^\infty A_n )= \Sigma_{n=1}^\infty P(A_n)\]
+    </p>
+    <h4>Sigma Algebra</h4>
+    <p>
+      \[\text{F = a collection of subsets of } \Omega\]
+      \[\text{F is a } \sigma \text{ algebra if: }  \]
+      \[\bullet \text{ }\text{ }\text{ } \Omega \in F \]
+      \[\bullet A \in F \Rightarrow A^c \in F \]
+      \[\bullet   A_1, A_2, ... \in F \Rightarrow \cup_{n=1}^\infty A_n \in F\]
+      \[\text{F = powerset of } \Omega \text{(set of all possible subsets)  = } 2^{|\Omega |}\]
+      \[\text{Eg. } \Omega \text{ = coin flips = [H, T]}\]
+      \[\text{F =}\{ \{ \emptyset \}, \{ H\}, \{T\}, \{ H,T \} _{=\{ \Omega \}}\}\]
+    </p>
+    <h3>Prob Laws</h3>
+    <p>
+
+      \[\text{If A and B are disjoint events:}P(A\cup B) = P(A) + P(B)\]
+      \[\text{else } P(A\cup B) = P(A) + P(B) - P(A\cap B)\]
+      \[P(A) = \frac{|A|}{|B|} = \frac{\text{# elements of A}}{\text{total elements}}\]
+      \[P(A) + P(A^c)=1\]
+    </p>
+    <h3>Conditional Probability</h3>
+    <p>
+      \[\text{P(B|A) = } \frac{(A \cap B)}{P(A)}\]
+      \[ \text{If A ind. of B } \quad P(B|A) = P(B)\]
+      \[ P(A \cap B ) = P(A)P(B)\]
+      \[ \text{Pairwise ind: } P(A_i \cap A_j) = P(A_i)P(A_j)\]
+      Pairwise independence does not equal mutual independence.
+    </p>
+  </body>
+</html>

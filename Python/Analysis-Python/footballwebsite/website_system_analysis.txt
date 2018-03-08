@@ -1,0 +1,5 @@
+1) Store all data from football data
+	1.1) Traverse through each folder
+	1.2) Data scrape and get relevant information
+		1.3) Store in year, store for club, store for position?
+		1.4) Store in SQL database

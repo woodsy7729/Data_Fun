@@ -1,0 +1,12 @@
+Make a bot to create an account on FB, and then like my profile picture.
+
+1) Need a text file of common names
+2) Need to make an email account for them - using first_name+lastname+15digits of pi
+3) activate email account
+4) register for fb
+	4.1) Depending on depth - make a profile account w/ a photo and general info??
+5) navigate to my home page
+6) Like my profile pic. 
+
+
+Make template for generic use

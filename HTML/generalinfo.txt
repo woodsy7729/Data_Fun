@@ -1,0 +1,28 @@
+http://www.ineasysteps.com
+
+validator.w3.org
+
+HTML Foundations:
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<body>
+	</body>
+	</head>
+</html>
+<!-- comments-->
+
+
+Special Characters:
+> = &gt < = &lt
+
+meta tag -meta data about the document
+Not displayed on the page
+Goes inside head element
+name and value pairs. Name specifies pafe feature. 
+
+<link rel = "" href="">
+<base href = "localhost/resource"> Seek a different address 
+
+Learn JavaScript

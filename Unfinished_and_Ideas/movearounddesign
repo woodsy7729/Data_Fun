@@ -1,0 +1,6 @@
+Take input from command line
+go to that location?
+ie  /usr/woods/University
+Call exec cd for ^
+Can add in more functions
+Like makefile(Location, filename);

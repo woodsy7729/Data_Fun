@@ -1,0 +1,1 @@
+write a program that outputs a txt file in LaTex file code

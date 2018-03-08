@@ -1,0 +1,12 @@
+1) Send data somewhere? - have in a sql table?
+2) How to get data into r to analyse?
+
+
+1) Average position of club
+2) Winner ave goals scored
+
+
+What data form do I want it
+
+1) Put data in to SQL
+- How?

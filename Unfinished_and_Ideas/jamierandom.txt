@@ -1,0 +1,10 @@
+HTML-Python-SQL
+
+web scrapping
+BeautifulSoup
+praw
+hackable
+
+jupyter
+Julie language?
+scikit - on python

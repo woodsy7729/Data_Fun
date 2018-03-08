@@ -1,0 +1,4 @@
+Have a program which 1) takes in a data set
+2) opens R
+3) computes some simple data analysis on it like mean, SD, outliers on boxplot etc etc
+4) sends data to a file called datasetanalysis.txt

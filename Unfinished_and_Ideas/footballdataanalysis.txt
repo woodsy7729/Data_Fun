@@ -1,0 +1,9 @@
+Analyse in R?
+Upload into a database like SQL and analyse
+
+1) Need a way to add data easily to the database
+	1.1) Create a program to read in a file
+	1.2) From that file data, add it to the database??
+		1.2.1) Insert into values()
+	1.3) Have the ls command program, read in all files of similar type
+		1.3.1) Need a way to distiguish the differences (ie in football data it is year)

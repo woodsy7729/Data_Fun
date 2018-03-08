@@ -1,0 +1,3 @@
+enter in arguments from command line which do different things
+ie by chapter, by book, top 10, top 1 etc etc
+switch statement from argv[i]
